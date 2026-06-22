@@ -4,8 +4,10 @@
   {% for post in writing_posts %}
     {% if writing_limit and forloop.index > writing_limit %}{% break %}{% endif %}
     <a class="writing-list__item" href="{{ post.url | relative_url }}">
-      <span class="writing-list__title">{{ post.title }}</span>
-      <span class="writing-list__date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <span class="writing-list__row">
+        <span class="writing-list__title">{{ post.title }}</span>
+        <span class="writing-list__date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      </span>
       {% if post.description %}<span class="writing-list__desc">{{ post.description }}</span>{% endif %}
     </a>
   {% endfor %}
