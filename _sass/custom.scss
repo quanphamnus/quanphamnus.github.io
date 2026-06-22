@@ -4,3 +4,50 @@
 .page__footer {
   background-color: rgb(193, 201, 206);
 }
+
+// Minimal "Writing" list, used on the homepage and the blog index
+.writing-list {
+  margin: 0.5em 0 2.5em;
+
+  &__item {
+    display: block;
+    margin-bottom: 1.4em;
+    text-decoration: none;
+    color: var(--global-text-color);
+
+    &:hover {
+      text-decoration: none;
+
+      .writing-list__title {
+        color: var(--global-link-color);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.3;
+    color: var(--global-text-color);
+  }
+
+  &__date {
+    display: block;
+    margin-top: 0.2em;
+    font-size: 0.8em;
+    color: var(--global-text-color-light);
+  }
+
+  &__desc {
+    display: block;
+    margin-top: 0.2em;
+    color: var(--global-text-color-light);
+  }
+}
+
+.writing-list__more {
+  margin-top: -1em;
+  font-size: 0.9em;
+}

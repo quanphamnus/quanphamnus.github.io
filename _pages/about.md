@@ -14,6 +14,12 @@ I love experimenting with language models to better understand the nature of the
 
 When I’m not doing research, you’ll probably find me building LEGO, watching films or off traveling somewhere new. I like collecting moments and photos along the way, and you can browse a few of them in [***my travel gallery.***](https://www.ngocquan.com/travel)
 
+# Writing
+
+{% include writing-list.html limit="5" %}
+
+<p class="writing-list__more"><a href="{{ '/year-archive/' | relative_url }}">All writing →</a></p>
+
 # Updates
 
 - **[Feb 2026]** I was offered PhD admission and research scholarship from National University of Singapore.
