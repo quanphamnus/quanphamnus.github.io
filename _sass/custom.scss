@@ -34,8 +34,10 @@
 
 // High-specificity override: writing-list items should NOT show the body underline.
 // They get their own affordance (title underlines on hover).
+// Includes both `.page__content` (single layout) and `.archive` (year-archive) wrappers.
 .writing-list__item,
-.page__content a.writing-list__item {
+.page__content a.writing-list__item,
+.archive a.writing-list__item {
   display: block;
   margin-bottom: 1.4em;
   text-decoration: none;
@@ -67,9 +69,8 @@
 
 .writing-list__date {
   flex-shrink: 0;
-  font-weight: 400;
-  font-size: 0.85em;
-  color: var(--global-text-color-light);
+  font-style: italic;
+  color: #282828;
   white-space: nowrap;
 }
 
@@ -77,7 +78,7 @@
   display: block;
   margin-top: 0.25em;
   font-style: italic;
-  color: var(--global-text-color-light);
+  color: #282828;
 }
 
 .writing-list__more {
