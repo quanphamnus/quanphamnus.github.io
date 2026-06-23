@@ -3,8 +3,14 @@
   background-color: rgb(193, 201, 206);
 }
 
+// Body text is near-black; links are grey by default and become near-black on hover.
+// Overriding --global-text-color makes body text (and anywhere else that uses this
+// variable) match the heading color — a deliberate single-tone look.
+:root {
+  --global-text-color: #282828;
+}
+
 // Override the theme's steel-blue (#517fa4) on headings in the main content area.
-// Use nrehiew.github.io's near-black #282828.
 // Sidebar's h3.author__name is intentionally NOT included so it keeps its theme color.
 .page__title,
 .page__content h1,
@@ -16,13 +22,13 @@
   color: #282828;
 }
 
-// Body links — match nrehiew style: black + underline, gray on hover.
+// Body links — grey by default, near-black on hover (matches the body text).
 // Scoped to .page__content so the masthead nav and sidebar icons are untouched.
 .page__content a {
-  color: #282828;
+  color: #9ca3af;
 
   &:hover {
-    color: #6b7280;
+    color: #282828;
   }
 }
 
@@ -32,9 +38,8 @@
   margin: 0.5em 0 2.5em;
 }
 
-// High-specificity override: writing-list items should NOT show the body underline.
-// They get their own affordance (title underlines on hover).
-// Includes both `.page__content` (single layout) and `.archive` (year-archive) wrappers.
+// Writing-list items look like static headings — black by default, no hover change.
+// `.archive` is needed so it also applies on the /year-archive/ page.
 .writing-list__item,
 .page__content a.writing-list__item,
 .archive a.writing-list__item {
@@ -45,11 +50,7 @@
 
   &:hover {
     text-decoration: none;
-    color: #6b7280;
-
-    .writing-list__title {
-      text-decoration: underline;
-    }
+    color: #282828;
   }
 }
 
@@ -60,13 +61,15 @@
   gap: 1em;
 }
 
+// Title — bold and near-black, like a heading.
 .writing-list__title {
   font-weight: 600;
   font-size: 1.05em;
   line-height: 1.3;
-  color: inherit; // follows the <a>: #282828 default, #6b7280 on hover
+  color: #282828;
 }
 
+// Date and description — same near-black as the title and the body text. Italic only.
 .writing-list__date {
   flex-shrink: 0;
   font-style: italic;
