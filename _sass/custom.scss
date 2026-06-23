@@ -1,44 +1,57 @@
-// Make footer slightly darker than the page background (subtle overlay)
+// Custom palette overrides for the default theme.
+// All element rules go through CSS variables so light/dark modes adapt automatically.
+// Hex values live in two places only: the :root (light) and html[data-theme="dark"] blocks.
+
+// Light mode: black text everywhere; grey reserved for link hover only.
+:root {
+  --global-text-color:        #282828;
+  --global-link-color:        #282828;
+  --global-link-color-hover:  #9ca3af;
+}
+
+// Dark mode: white text everywhere; lighter grey for link hover.
+// (The theme already redefines --global-text-color to #ffffff inside this block;
+//  we override link colors here so they follow the same pattern.)
+html[data-theme="dark"] {
+  --global-link-color:        #ffffff;
+  --global-link-color-hover:  #b0b0b0;
+}
+
+// Override the theme's literal-color heading rule in _themes.scss (#517fa4)
+// so headings follow --global-text-color and adapt to dark mode.
+h1, h2, h3, h4, h5, h6 {
+  color: var(--global-text-color);
+}
+
+// Sidebar author name keeps the theme's original blue in both light and dark mode.
+// Specificity (0,2,0) beats the h1-h6 rule above (0,0,1).
+.sidebar .author__name {
+  color: #517fa4;
+}
+
+// Body links — variables so dark mode is handled automatically.
+// Scoped to .page__content so the masthead nav and sidebar icons keep theme styling.
+.page__content a {
+  color: var(--global-link-color);
+
+  &:hover {
+    color: var(--global-link-color-hover);
+  }
+}
+
+// Footer — leave the user's custom color in place.
 .page__footer {
   background-color: rgb(193, 201, 206);
 }
 
-// Body text is near-black; links are grey by default and become near-black on hover.
-// Overriding --global-text-color makes body text (and anywhere else that uses this
-// variable) match the heading color — a deliberate single-tone look.
-:root {
-  --global-text-color: #282828;
-}
-
-// Override the theme's steel-blue (#517fa4) on headings in the main content area.
-// Sidebar's h3.author__name is intentionally NOT included so it keeps its theme color.
-.page__title,
-.page__content h1,
-.page__content h2,
-.page__content h3,
-.page__content h4,
-.page__content h5,
-.page__content h6 {
-  color: #282828;
-}
-
-// Body links — grey by default, near-black on hover (matches the body text).
-// Scoped to .page__content so the masthead nav and sidebar icons are untouched.
-.page__content a {
-  color: #9ca3af;
-
-  &:hover {
-    color: #282828;
-  }
-}
-
-// Minimal "Writing" list — used on the homepage and the blog index.
+// === Minimal "Writing" list ===
 // Inspired by https://nrehiew.github.io/blog/
 .writing-list {
   margin: 0.5em 0 2.5em;
 }
 
-// Writing-list items look like static headings — black by default, no hover change.
+// Writing-list items look like static headings — no hover change.
+// Higher specificity beats the .page__content a:hover rule above.
 // `.archive` is needed so it also applies on the /year-archive/ page.
 .writing-list__item,
 .page__content a.writing-list__item,
@@ -46,11 +59,11 @@
   display: block;
   margin-bottom: 1.4em;
   text-decoration: none;
-  color: #282828;
+  color: var(--global-text-color);
 
   &:hover {
     text-decoration: none;
-    color: #282828;
+    color: var(--global-text-color);
   }
 }
 
@@ -61,19 +74,17 @@
   gap: 1em;
 }
 
-// Title — bold and near-black, like a heading.
 .writing-list__title {
   font-weight: 600;
   font-size: 1.05em;
   line-height: 1.3;
-  color: #282828;
+  color: var(--global-text-color);
 }
 
-// Date and description — same near-black as the title and the body text. Italic only.
 .writing-list__date {
   flex-shrink: 0;
   font-style: italic;
-  color: #282828;
+  color: var(--global-text-color);
   white-space: nowrap;
 }
 
@@ -81,10 +92,5 @@
   display: block;
   margin-top: 0.25em;
   font-style: italic;
-  color: #282828;
-}
-
-.writing-list__more {
-  margin-top: -0.5em;
-  font-size: 0.9em;
+  color: var(--global-text-color);
 }
