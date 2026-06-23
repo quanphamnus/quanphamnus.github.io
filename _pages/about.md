@@ -8,9 +8,7 @@ redirect_from:
 ---
 
 
-**About me**: Hello world! I’m Quan Pham, an incoming PhD student at the National University of Singapore. I received my bachelor’s degree from [HUST](https://hust.edu.vn/en/). I was mentored by [Prof. Trung Le](https://research.monash.edu/en/persons/trung-le/) and [Prof. Dinh Phung](https://dinhphung.ml/) (previously at VinAI Research), and I currently work closely with [Dr. Tung Pham](https://scholar.google.com/citations?user=KcUuEKsAAAAJ&hl=en) and [Dr. Hung Bui](https://sites.google.com/site/buihhung/) at Qualcomm AI Research.
-
-When I’m not doing research, you’ll probably find me playing games, watching films or off traveling somewhere new. I like collecting moments and photos along the way, and you can browse a few of them in [*my travel gallery.*](https://www.ngocquan.com/travel)
+**About me**: Hello world! I’m Quan Pham, an incoming PhD student at the National University of Singapore (NUS), where I’m lucky to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I earned a bachelor’s in Data Science from Hanoi University of Science and Technology, then spent time as an AI Resident at two industry labs — [VinAI Research](https://www.vinai.io/) (with [Prof. Trung Le](https://research.monash.edu/en/persons/trung-le/)) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence) (with [Dr. Tung Pham](https://scholar.google.com/citations?user=KcUuEKsAAAAJ&hl=en) and [Dr. Hung Bui](https://sites.google.com/site/buihhung/)). When I’m not doing research, you’ll probably find me playing games, watching films or off traveling somewhere new. I like collecting moments and photos along the way, and you can browse a few of them in [*my travel gallery.*](https://www.ngocquan.com/travel)
 
 # Writing
 
