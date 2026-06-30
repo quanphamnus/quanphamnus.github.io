@@ -29,6 +29,32 @@ h1, h2, h3, h4, h5, h6 {
   color: #517fa4;
 }
 
+// Tighten paragraph spacing in main content (theme default is 1.3em).
+.page__content p {
+  margin-bottom: 1em;
+}
+
+// Compact "Updates" list — bounded height with a thin scrollbar so the homepage
+// stays tidy as the list grows. Roughly 5 items visible before scrolling.
+.updates-list {
+  max-height: 15em;
+  overflow-y: auto;
+  padding-right: 0.5em;
+  scrollbar-width: thin;
+  scrollbar-color: var(--global-border-color) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--global-border-color);
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
 // Body links — variables so dark mode is handled automatically.
 // Scoped to .page__content so the masthead nav and sidebar icons keep theme styling.
 .page__content a {
