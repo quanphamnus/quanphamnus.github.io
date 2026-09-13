@@ -22,7 +22,7 @@
     var pts = [], K = 4, cen = [], prev = [], trail = [], asg = [], oldAsg = [];
     var iter = 0, inertia = 0, seed = 0, dataAge = 0;
     var t0 = 0, PHASE_A = 360, PHASE_B = 640;   // recolour, then glide
-    var phase = "assign", holdAt = 0, done = false;
+    var phase = "assign", holdAt = 0, done = false, capped = false;
     var TOL_PX = 3, MAX_ITER = 10;   // sklearn's tol / max_iter, in screen pixels
 
     function theme() {
@@ -31,10 +31,10 @@
                     : document.documentElement.getAttribute("data-theme") === "dark";
       return dark
         ? { pal:["#6fa8dc","#e0837a","#6ebcae","#d7b06a","#a396c9"],
-            ink:"#e8e8e8", grid:"rgba(255,255,255,.05)", read:"#7d868c",
+            ink:"#e8e8e8", grid:"rgba(255,255,255,.05)", read:"#517fa4",
             halo:"#1b1b1b", idle:"#5a6167", fieldA:.30 }
         : { pal:["#4a7fb5","#b3645a","#4f9a8f","#c1934a","#8878a8"],
-            ink:"#282828", grid:"rgba(40,40,40,.045)", read:"#9aa0a4",
+            ink:"#282828", grid:"rgba(40,40,40,.045)", read:"#517fa4",
             halo:"#ffffff", idle:"#b9bec2", fieldA:.26 };
     }
 
@@ -87,7 +87,7 @@
       trail = cen.map(function (c) { return [{ x: c.x, y: c.y }]; });
       // -1 = not yet assigned, so the first step fades in from neutral grey
       for (i = 0; i < pts.length; i++) { pts[i].a = -1; pts[i].prevA = -1; pts[i].mix = 1; }
-      iter = 0; done = false; phase = "assign"; t0 = performance.now();
+      iter = 0; done = false; capped = false; phase = "assign"; t0 = performance.now();
       seed++; dataAge++;
       assign();
     }
@@ -117,17 +117,24 @@
         j = pts[i].a; sx[j] += pts[i].x; sy[j] += pts[i].y; n[j]++;
       }
       prev = cen.map(function (c) { return { x: c.x, y: c.y }; });
-      var moved = 0;
+      var moved = 0, taken = [];
       for (j = 0; j < cen.length; j++) {
         if (n[j] === 0) {
-          // empty cluster: re-seed onto the point furthest from its centroid,
-          // the standard practical fix - otherwise it sits dead on screen
-          var fi = 0, fd = -1, dx, dy, d;
+          // Empty cluster: re-seed it onto the point furthest from its own
+          // centroid (MATLAB calls this EmptyAction='singleton').
+          // Distances are measured against prev[] - the centroids as they
+          // were at the start of this update - because cen[] is being
+          // rewritten by this very loop, so reading it would mix old and new
+          // positions depending on j. `taken` stops two empty clusters from
+          // claiming the same point and landing exactly on top of each other.
+          var fi = -1, fd = -1, dx, dy, d;
           for (i = 0; i < pts.length; i++) {
-            dx = pts[i].x - cen[pts[i].a].x; dy = pts[i].y - cen[pts[i].a].y;
+            if (taken.indexOf(i) >= 0) continue;
+            dx = pts[i].x - prev[pts[i].a].x; dy = pts[i].y - prev[pts[i].a].y;
             d = dx * dx + dy * dy;
             if (d > fd) { fd = d; fi = i; }
           }
+          taken.push(fi);
           cen[j] = { x: pts[fi].x, y: pts[fi].y };
         } else {
           cen[j] = { x: sx[j] / n[j], y: sy[j] / n[j] };
@@ -277,17 +284,14 @@
         ctx.fillStyle = c.pal[j % c.pal.length]; ctx.fill();
       }
 
-      // readout
+      // readout, bottom-right - one line, in the site's UI font
       var narrow = W < 520;
-      ctx.font = (narrow ? 10 : 11) + "px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace";
+      ctx.font = (narrow ? 11 : 12) + "px -apple-system, BlinkMacSystemFont, " +
+                 "'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
       ctx.textAlign = "right"; ctx.fillStyle = c.read;
-      ctx.fillText("k = " + K + "  ·  iteration " + iter +
-                   (done ? "  ·  converged" : ""), W - 6, H - 16);
-      ctx.fillText("inertia = " + inertia.toFixed(3), W - 6, H - 5);
-      if (!narrow) {
-        ctx.textAlign = "left";
-        ctx.fillText("random init #" + seed, 6, H - 5);
-      }
+      ctx.fillText("k = " + K + "  |  iteration " + iter +
+                   (done ? (capped ? "  |  max_iter" : "  |  converged") : ""),
+                   W - pad, H - 5);
     }
 
     function frame(now) {
@@ -309,7 +313,11 @@
         iter++;
         var changed = assign();
         phase = "assign"; t0 = now;
-        if (changed === 0 || iter >= MAX_ITER) { done = true; holdAt = now; }
+        // Stopping on tol counts as converged (that is what sklearn reports);
+        // hitting the iteration cap does not, so say so rather than claiming
+        // a fixed point the run never reached.
+        if (changed === 0) { done = true; holdAt = now; }
+        else if (iter >= MAX_ITER) { done = true; capped = true; holdAt = now; }
       }
       draw(now);
       requestAnimationFrame(frame);

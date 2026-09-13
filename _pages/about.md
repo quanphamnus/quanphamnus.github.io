@@ -16,7 +16,7 @@ redirect_from:
 
 <script src="{{ '/assets/js/kmeans.js' | relative_url }}"></script>
 
-**About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I earned a bachelor’s in Data Science from Hanoi University of Science and Technology, then spent time as an AI Resident at [VinAI Research](https://www.vinai.io/) (with [Prof. Trung Le](https://research.monash.edu/en/persons/trung-le/) and [Prof. Dinh Phung](https://www.dinhphung.com/)) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence) (with [Dr. Tung Pham](https://scholar.google.com/citations?user=KcUuEKsAAAAJ&hl=en) and [Dr. Hung Bui](https://sites.google.com/site/buihhung/)). 
+**About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I earned a bachelor’s in Data Science from Hanoi University of Science and Technology, then spent time as an AI Resident at [VinAI Research](https://www.vinai.io/) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence). 
 
 Most of my days revolve around research, and I really enjoy that rhythm. The repetition does not feel boring to me; instead, it has taught me resilience, patience, and focus. Outside of research, I enjoy playing games, watching films, and, especially, traveling to new places.
 
@@ -25,7 +25,7 @@ Most of my days revolve around research, and I really enjoy that rhythm. The rep
 
 {% include writing-list.html limit="5" %}
 
-<p class="writing-list__more"><a href="{{ '/year-archive/' | relative_url }}">All writing →</a></p>
+<p class="writing-list__more"><a href="{{ '/posts/' | relative_url }}">All writing →</a></p>
 
 # Updates
 
