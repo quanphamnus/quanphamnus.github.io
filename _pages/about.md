@@ -7,14 +7,10 @@ redirect_from:
   - /about.html
 ---
 
-<style>
-.km-fig{margin:1.6em 0;width:100%}
-.km-fig canvas{display:block;width:100%;height:auto}
-</style>
+<img src="/images/my_lab_table-1200.jpg" srcset="/images/my_lab_table-800.jpg 800w, /images/my_lab_table-1200.jpg 1200w, /images/my_lab_table-1600.jpg 1600w, /images/my_lab_table-2400.jpg 2400w" sizes="(min-width: 925px) 770px, calc(100vw - 32px)" width="2400" height="858" alt="My desk in the lab: LEGO Hedwig, a stack of Nespresso pods, books, notebooks, and two screens playing the same classical-music study video.">
 
-<div class="km-fig"><canvas id="km-canvas"></canvas></div>
-
-<script src="{{ '/assets/js/kmeans.js' | relative_url }}"></script>
+*My desk in the lab. I'll be sitting here for the next four years, so I really enjoy decorating it with my favorite stuff.*
+{: .text-center}
 
 **About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I earned a bachelor’s in Data Science from Hanoi University of Science and Technology, then spent time as an AI Resident at [VinAI Research](https://www.vinai.io/) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence). 
 
