@@ -1,0 +1,64 @@
+---
+layout: single
+title: "Travels"
+permalink: /travels/
+author_profile: true
+---
+
+{% comment %}
+  Everything on this page is generated from _data/travels.yml. To add a place or photos,
+  edit that file only (instructions are at its top).
+{% endcomment %}
+
+{% assign places = site.data.travels %}
+{% assign countries = "" | split: "" %}
+{% for p in places %}{% assign c = p.place | split: ", " | last %}{% assign countries = countries | push: c %}{% endfor %}
+{% assign n_countries = countries | uniq | size %}
+
+<style>
+.trips-summary{opacity:.6;margin:-.3em 0 1.3em}
+.trip{border-top:1px solid var(--global-border-color);border-top-color:color-mix(in srgb,currentColor 16%,transparent)}
+.trip:last-child{border-bottom:1px solid var(--global-border-color);border-bottom-color:color-mix(in srgb,currentColor 16%,transparent)}
+.trip > summary, .trip--plain{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1em .7em;padding:.62em 0;list-style:none}
+.trip > summary{cursor:pointer}
+.trip > summary::-webkit-details-marker{display:none}
+.trip > summary::before, .trip--plain::before{content:"";flex:none;width:.42em;height:.42em;margin-right:.25em}
+.trip > summary::before{border-right:2px solid currentColor;border-bottom:2px solid currentColor;opacity:.5;transform:translateY(-.12em) rotate(-45deg);transition:transform .2s}
+.trip[open] > summary::before{transform:translateY(-.22em) rotate(45deg)}
+.trip > summary:hover::before{opacity:.9}
+.trip-name{font-weight:600}
+.trip-when{opacity:.55;font-size:.9em;white-space:nowrap}
+.trip-count{margin-left:auto;opacity:.45;font-size:.8em;white-space:nowrap}
+.trip-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start;padding:.15em 0 1.4em}
+.ph{margin:0}
+.ph.wide{grid-column:1 / -1}
+.ph img{display:block;width:100%;height:auto;aspect-ratio:auto 3 / 4;border-radius:3px;background:var(--global-border-color);cursor:zoom-in}
+.ph .cap{display:block;margin-top:.35em;font-size:.8em;font-style:italic;text-align:center;opacity:.65}
+dialog.lb{border:0;padding:0;background:transparent;overflow:visible;max-width:none;max-height:none}
+dialog.lb::backdrop{background:rgba(0,0,0,.88)}
+dialog.lb img{display:block;max-width:94vw;max-height:86vh;width:auto;height:auto;border-radius:3px;cursor:zoom-out}
+dialog.lb .cap{margin-top:.6em;min-height:1.3em;text-align:center;font-size:.85em;color:#ddd}
+dialog.lb .cap span{opacity:.55;margin-left:.8em}
+@media (max-width:480px){.trip-count{display:none}}
+@media (prefers-reduced-motion:reduce){.trip > summary::before{transition:none}}
+</style>
+
+<p class="trips-summary">{{ places.size }} place{% if places.size != 1 %}s{% endif %} in {{ n_countries }} countr{% if n_countries == 1 %}y{% else %}ies{% endif %}</p>
+
+<div class="trips">
+{% for p in places %}
+{% assign photos = p.photos %}
+{% if photos and photos.size > 0 %}
+<details class="trip" id="{{ p.place | slugify }}">
+<summary><span class="trip-name">{{ p.place }}</span>{% if p.when %}<span class="trip-when">{{ p.when }}</span>{% endif %}<span class="trip-count">{{ photos.size }} photo{% if photos.size != 1 %}s{% endif %}</span></summary>
+<div class="trip-photos">
+{% for photo in photos %}{% assign src = photo.path | default: photo %}<div class="ph"><img src="{{ '/images/travels/' | append: src | relative_url }}" alt="{{ photo.caption | default: p.place | escape }}" data-cap="{{ photo.caption | escape }}" loading="lazy" decoding="async">{% if photo.caption %}<span class="cap">{{ photo.caption }}</span>{% endif %}</div>{% endfor %}
+</div>
+</details>
+{% else %}
+<div class="trip trip--plain"><span class="trip-name">{{ p.place }}</span>{% if p.when %}<span class="trip-when">{{ p.when }}</span>{% endif %}</div>
+{% endif %}
+{% endfor %}
+</div>
+
+<script src="{{ '/assets/js/travels.js' | relative_url }}" defer></script>

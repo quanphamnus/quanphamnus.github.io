@@ -1,0 +1,35 @@
+# Places for the Travels page (/travels/). This is the ONLY file you need to edit.
+#
+# Add a new place at the TOP of the list (order here = order on the page).
+#
+#   - place: City, Country          # required. The text after the last comma counts as the country.
+#     when: 2026                    # optional. Any text: "2026", "2014, 2020", "2022-2026"
+#     photos:                       # optional. Leave it out to list the place without photos.
+#       - hanoi/IMG_0123.jpg                # just a path, relative to images/travels/
+#       - path: hanoi/IMG_0124.jpg          # ...or a path with a caption
+#         caption: Hoan Kiem Lake at dawn
+#
+# Adding photos from an iPhone (converts HEIC to JPEG, shrinks them, prints the lines to paste below):
+#
+#   scripts/add-travel-photos.sh hanoi ~/Desktop/IMG_0123.HEIC ~/Desktop/IMG_0124.HEIC
+#
+# Then paste the printed lines under `photos:`. Portrait photos are shown two per row;
+# landscape photos automatically take a full row.
+
+- place: Vancouver, Canada
+  when: 2025
+  photos:
+    - vancouver/vancouver_1.jpeg
+    - vancouver/vancouver_2.jpeg
+
+- place: Hai Phong, Vietnam
+  when: 2024
+  photos:
+    - hai-phong/hai_phong_1.jpeg
+    - hai-phong/hai_phong_2.jpeg
+
+- place: Moc Chau, Vietnam
+  when: 2023
+  photos:
+    - moc-chau/moc_chau_1.jpeg
+    - moc-chau/moc_chau_2.jpeg

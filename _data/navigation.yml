@@ -19,8 +19,10 @@ main:
   - title: "Teaching"
     url: /teaching/    
 
-  - title: "CV"
-    url: /cv/
+  - title: "Resume"
+    url: /files/CV.pdf
+  - title: "Travels"
+    url: /travels/
     
   # - title: "My Books"
   #   url: /markdown/
