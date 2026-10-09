@@ -56,6 +56,12 @@
     var img = e.target.closest && e.target.closest(".ph img");
     if (!img) return;
     set = Array.prototype.slice.call(img.closest(".trip-photos").querySelectorAll(".ph img"));
+    /* the grid back-fills gaps (grid-auto-flow: dense), so the order on screen can differ
+       from the order in travels.yml. Navigate in the order the eye sees: row by row. */
+    set.sort(function (a, b) {
+      var ra = a.parentNode.getBoundingClientRect(), rb = b.parentNode.getBoundingClientRect();
+      return Math.abs(ra.top - rb.top) > 4 ? ra.top - rb.top : ra.left - rb.left;
+    });
     show(set.indexOf(img));
     dlg.showModal();
     doc.documentElement.style.overflow = "hidden";

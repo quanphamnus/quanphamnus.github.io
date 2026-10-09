@@ -3,6 +3,8 @@
 # Add a new place at the TOP of the list (order here = order on the page).
 #
 #   - place: City, Country          # required. The text after the last comma counts as the country.
+#                                   # Visited the same place in different years? Make one entry per trip with the same
+#                                   # `place` text: they stay separate on the page and count as ONE place in the total.
 #     when: 2026                    # optional. Any text: "2026", "2014, 2020", "2022-2026"
 #     photos:                       # optional. Leave it out to list the place without photos.
 #       - hanoi/IMG_0123.jpg                # just a path, relative to images/travels/
@@ -16,20 +18,142 @@
 # Then paste the printed lines under `photos:`. Portrait photos are shown two per row;
 # landscape photos automatically take a full row.
 
+- place: Singapore
+  when: Studying here
+  photos:
+    - singapore/singapore_1.jpeg
+    - singapore/singapore_2.jpeg
+    - singapore/singapore_3.jpeg
+    - singapore/singapore_4.jpeg
+
+- place: Co To, Vietnam
+  when: 2026
+  photos:
+    - co-to/co-to_2026_1.jpeg
+    - co-to/co-to_2026_2.jpeg
+    - co-to/co-to_2026_3.jpeg
+    - co-to/co-to_2026_4.jpeg
+
+- place: Hoi An, Vietnam
+  when: 2026
+  photos:
+    - hoi-an/hoi-an_2026_1.jpeg
+    - hoi-an/hoi-an_2026_2.jpeg
+
+- place: Mui Ne, Vietnam
+  when: 2026
+  photos:
+    - mui-ne/mui-ne_2026_1.jpeg
+    - mui-ne/mui-ne_2026_3.jpeg
+
+- place: Ha Giang, Vietnam
+  when: 2026
+  photos:
+    - ha-giang/ha-giang_2026_2.jpeg
+    - ha-giang/ha-giang_2026_4.jpeg
+
+- place: Nha Trang, Vietnam
+  when: 2026
+  photos:
+    - nha-trang/nha-trang_2026_1.jpeg
+    - nha-trang/nha-trang_2026_2.jpeg
+
+- place: Da Lat, Vietnam
+  when: 2026
+  photos:
+    - da-lat/da-lat_2026_1.jpeg
+    - da-lat/da-lat_2026_2.jpeg
+    - da-lat/da-lat_2026_3.jpeg
+    - da-lat/da-lat_2026_4.jpeg
+
+- place: Vinh Phuc, Vietnam
+  when: 2025
+  photos:
+    - vinh-phuc/vinh-phuc_2025_1.jpeg
+    - vinh-phuc/vinh-phuc_2025_2.jpeg
+
 - place: Vancouver, Canada
   when: 2025
   photos:
-    - vancouver/vancouver_1.jpeg
-    - vancouver/vancouver_2.jpeg
+    - vancouver/vancouver_2025_1.jpeg
+    - vancouver/vancouver_2025_2.jpeg
+    - vancouver/vancouver_2025_3.jpeg
+    - vancouver/vancouver_2025_4.jpeg
+    - vancouver/vancouver_2025_5.jpeg
+    - vancouver/vancouver_2025_6.jpeg
+
+- place: Da Lat, Vietnam
+  when: 2025
+  photos:
+    - da-lat/da-lat_2025_1.jpeg
+    - da-lat/da-lat_2025_2.jpeg
+
+- place: Ho Chi Minh, Vietnam
+  when: 2025
+  photos:
+    - ho-chi-minh/ho-chi-minh_2025_1.jpeg
+    - ho-chi-minh/ho-chi-minh_2025_2.jpeg
+
+- place: Hue, Vietnam
+  when: 2025
+  photos:
+    - hue/hue_2025_1.jpeg
+    - hue/hue_2025_2.jpeg
+    - hue/hue_2025_3.jpeg
+    - hue/hue_2025_4.jpeg
+
+- place: Nam Dinh, Vietnam
+  when: 2024
+  photos:
+    - nam-dinh/nam-dinh_2024_1.jpeg
+    - nam-dinh/nam-dinh_2024_2.jpeg
+
+- place: Taipei, Taiwan
+  when: 2024
+  photos:
+    - taipei/taipei_2024_1.jpeg
+    - taipei/taipei_2024_2.jpeg
 
 - place: Hai Phong, Vietnam
   when: 2024
   photos:
-    - hai-phong/hai_phong_1.jpeg
-    - hai-phong/hai_phong_2.jpeg
+    - hai-phong/hai-phong_2024_1.jpeg
+    - hai-phong/hai-phong_2024_2.jpeg
 
-- place: Moc Chau, Vietnam
+- place: Ho Chi Minh, Vietnam
   when: 2023
   photos:
-    - moc-chau/moc_chau_1.jpeg
-    - moc-chau/moc_chau_2.jpeg
+    - ho-chi-minh/ho-chi-minh_2023.jpeg
+    - ho-chi-minh/ho-chi-minh_2023_1.jpeg
+
+- place: Cat Ba, Vietnam
+  when: 2023
+  photos:
+    - cat-ba/cat-ba_2023.jpeg
+    - cat-ba/cat-ba_2023_1.jpeg
+    - cat-ba/cat-ba_2023_2.jpeg
+
+- place: Hue, Vietnam
+  when: 2023
+  photos:
+    - hue/hue_2023.jpeg
+    - hue/hue_2023_1.jpeg
+    - hue/hue_2023_3.jpeg
+
+- place: Ha Noi, Vietnam
+  when: 2022
+  photos:
+    - ha-noi/ha-noi_2022.jpeg
+    - ha-noi/ha-noi_2022_1.jpeg
+
+- place: Ninh Binh, Vietnam
+  when: 2022
+  photos:
+    - ninh-binh/ninh-binh_2022.jpeg
+    - ninh-binh/ninh-binh_2022_1.jpeg
+
+- place: Thanh Hoa, Vietnam
+  when: 2022
+  photos:
+    - thanh-hoa/thanh-hoa_2022.jpeg
+    - thanh-hoa/thanh-hoa_2022_1.jpeg

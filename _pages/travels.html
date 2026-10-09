@@ -14,6 +14,7 @@ author_profile: true
 {% assign countries = "" | split: "" %}
 {% for p in places %}{% assign c = p.place | split: ", " | last %}{% assign countries = countries | push: c %}{% endfor %}
 {% assign n_countries = countries | uniq | size %}
+{% assign n_places = places | map: "place" | uniq | size %}
 
 <style>
 .trips-summary{opacity:.6;margin:-.3em 0 1.3em}
@@ -29,7 +30,7 @@ author_profile: true
 .trip-name{font-weight:600}
 .trip-when{opacity:.55;font-size:.9em;white-space:nowrap}
 .trip-count{margin-left:auto;opacity:.45;font-size:.8em;white-space:nowrap}
-.trip-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start;padding:.15em 0 1.4em}
+.trip-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:row dense;gap:8px;align-items:start;padding:.15em 0 1.4em}
 .ph{margin:0}
 .ph.wide{grid-column:1 / -1}
 .ph img{display:block;width:100%;height:auto;aspect-ratio:auto 3 / 4;border-radius:3px;background:var(--global-border-color);cursor:zoom-in}
@@ -43,13 +44,13 @@ dialog.lb .cap span{opacity:.55;margin-left:.8em}
 @media (prefers-reduced-motion:reduce){.trip > summary::before{transition:none}}
 </style>
 
-<p class="trips-summary">{{ places.size }} place{% if places.size != 1 %}s{% endif %} in {{ n_countries }} countr{% if n_countries == 1 %}y{% else %}ies{% endif %}</p>
+<p class="trips-summary">{{ n_places }} place{% if n_places != 1 %}s{% endif %} in {{ n_countries }} countr{% if n_countries == 1 %}y{% else %}ies{% endif %}</p>
 
 <div class="trips">
 {% for p in places %}
 {% assign photos = p.photos %}
 {% if photos and photos.size > 0 %}
-<details class="trip" id="{{ p.place | slugify }}">
+<details class="trip" id="{{ p.place | append: ' ' | append: p.when | slugify }}">
 <summary><span class="trip-name">{{ p.place }}</span>{% if p.when %}<span class="trip-when">{{ p.when }}</span>{% endif %}<span class="trip-count">{{ photos.size }} photo{% if photos.size != 1 %}s{% endif %}</span></summary>
 <div class="trip-photos">
 {% for photo in photos %}{% assign src = photo.path | default: photo %}<div class="ph"><img src="{{ '/images/travels/' | append: src | relative_url }}" alt="{{ photo.caption | default: p.place | escape }}" data-cap="{{ photo.caption | escape }}" loading="lazy" decoding="async">{% if photo.caption %}<span class="cap">{{ photo.caption }}</span>{% endif %}</div>{% endfor %}
