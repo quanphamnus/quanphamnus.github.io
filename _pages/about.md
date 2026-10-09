@@ -14,14 +14,25 @@ redirect_from:
 
 **About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I earned a bachelor’s in Data Science from Hanoi University of Science and Technology, then spent time as an AI Resident at [VinAI Research](https://www.vinai.io/) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence). 
 
-Most of my days revolve around research, and I really enjoy that rhythm. The repetition does not feel boring to me; instead, it has taught me resilience, patience, and focus. Outside of research, I enjoy playing games, watching films, and, especially, traveling to new places.
+Most of my days revolve around research, and I really enjoy that rhythm. The repetition does not feel boring to me; instead, it has taught me resilience, patience, and focus. Outside of research, I enjoy playing games, watching films, and, especially, traveling to [new places]({{ '/travels/' | relative_url }}).
 
+
+My email is quanpham (at) u.nus.edu. For more about me, you can take a look at my [resume]({{ '/files/CV.pdf' | relative_url }}).
+
+# Selected Publications
+
+{% assign selected_pubs = site.publications | where: "selected", true | reverse %}
+<div class="writing-list">
+{% for pub in selected_pubs %}<a class="writing-list__item" href="{{ pub.url | relative_url }}"><span class="writing-list__row"><span class="writing-list__title">{{ pub.title }}</span><span class="writing-list__date">{{ pub.date | date: "%Y" }}</span></span>{% if pub.venue %}<span class="writing-list__desc">{{ pub.venue }}</span>{% endif %}</a>
+{% endfor %}</div>
+
+<p class="writing-list__more"><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
 
 # Writing
 
 {% include writing-list.html limit="5" %}
 
-<p class="writing-list__more"><a href="{{ '/posts/' | relative_url }}">All writing →</a></p>
+<p class="writing-list__more"><a href="{{ '/blog/' | relative_url }}">All writing →</a></p>
 
 # Updates
 
