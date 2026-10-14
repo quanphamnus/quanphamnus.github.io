@@ -58,9 +58,12 @@ My email is quanpham (at) u.nus.edu. For more about me, you can take a look at m
 
 # Research Interests
 
-I am interested in self-evolving agents and their applications to scientific research. I aim to develop agentic systems that effectively support researchers and the broader academic community. 
 
-My current focus is on scalable, hierarchical skill libraries that allow agents to retrieve and reuse skills across tasks. I study how agents can build, organize, and continually improve these libraries through experience and feedback.
+I am interested in self-evolving agents and their applications to scientific research, with the goal of supporting researchers and the broader academic community. I enjoy reading insightful papers line by line and want to spend less time filtering through low-quality AI-generated papers. My current focus is therefore on ***AI reviewers***: how to reliably evaluate their capabilities, integrate them effectively into the peer review process, and use them to support human reviewers as the number of submissions grows rapidly.
+
+If you share the same interest, I am always happy for a collaboration, feel free to reach me at quanpham (at) u.nus.edu
+
+
 
 <!-- spacer before map tracker -->
 <div style="height:48px;" aria-hidden="true"></div>
