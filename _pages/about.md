@@ -61,7 +61,7 @@ My email is quanpham (at) u.nus.edu. For more about me, you can take a look at m
 
 I am interested in self-evolving agents and their applications to scientific research, with the goal of supporting researchers and the broader academic community. I enjoy reading insightful papers line by line and want to spend less time filtering through low-quality AI-generated papers. My current focus is therefore on ***AI reviewers***: how to reliably evaluate their capabilities, integrate them effectively into the peer review process, and use them to support human reviewers as the number of submissions grows rapidly.
 
-If you share the same interest, I am always happy for a collaboration, feel free to reach me at quanpham (at) u.nus.edu
+I am also really interested in reinforcement learning in general. If you share these interests, I would be happy to collaborate. Feel free to reach out at quanpham (at) u.nus.edu.
 
 
 
