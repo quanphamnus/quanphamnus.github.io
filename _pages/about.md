@@ -8,12 +8,12 @@ redirect_from:
 ---
 
 {% assign lab_photo = site.data.lab | sort: "date" | last %}{% assign lab_id = lab_photo.date | date: "%Y-%m-%d" %}
-<img src="{{ '/images/lab/' | append: lab_id | append: '-1200.jpg' | relative_url }}" srcset="{{ '/images/lab/' | append: lab_id | append: '-800.jpg' | relative_url }} 800w, {{ '/images/lab/' | append: lab_id | append: '-1200.jpg' | relative_url }} 1200w, {{ '/images/lab/' | append: lab_id | append: '-1600.jpg' | relative_url }} 1600w, {{ '/images/lab/' | append: lab_id | append: '-2400.jpg' | relative_url }} 2400w" sizes="(min-width: 925px) 770px, calc(100vw - 32px)" width="{{ lab_photo.width }}" height="{{ lab_photo.height }}" alt="My desk in the lab: two LEGO Hedwig sets, a stack of books, snacks, two mugs, and two screens playing the same classical-music study video.">
+<img src="{{ '/images/lab/' | append: lab_id | append: '-1200.jpg' | relative_url }}" srcset="{{ '/images/lab/' | append: lab_id | append: '-800.jpg' | relative_url }} 800w, {{ '/images/lab/' | append: lab_id | append: '-1200.jpg' | relative_url }} 1200w, {{ '/images/lab/' | append: lab_id | append: '-1600.jpg' | relative_url }} 1600w, {{ '/images/lab/' | append: lab_id | append: '-2400.jpg' | relative_url }} 2400w" sizes="(min-width: 925px) 770px, calc(100vw - 32px)" width="{{ lab_photo.width }}" height="{{ lab_photo.height }}" alt="My desk in the lab.">
 
-*[My desk in the lab. I'll be sitting here for the next four years, so I really enjoy decorating it with my favorite stuff.]({{ '/lab/' | relative_url }})*
+*My desk in the lab. I'll be sitting here for the next four years, so I really enjoy decorating it with my favorite stuff. [See how it changes over time.]({{ '/lab/' | relative_url }})*
 {: .text-center}
 
-**About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I earned a bachelor’s in Data Science from Hanoi University of Science and Technology, then spent time as an AI Resident at [VinAI Research](https://www.vinai.io/) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence). 
+**About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I studied Data Science at Hanoi University of Science and Technology, then spent time as an AI Resident at [VinAI Research](https://www.vinai.io/) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence). 
 
 Most of my days revolve around research, and I really enjoy that rhythm. The repetition does not feel boring to me; instead, it has taught me resilience, patience, and focus. Outside of research, I enjoy playing games, watching films, and, especially, traveling to [new places]({{ '/travels/' | relative_url }}).
 
