@@ -1,0 +1,18 @@
+# Photos of my desk in the lab, one entry per update. Used by the homepage photo (the newest
+# entry) and by the archive page /lab/ (all entries, newest first, not linked from the nav).
+#
+# To update the photo, run (HEIC/JPG/PNG all work; the date defaults to today, so pass the
+# day the photo was TAKEN as the second argument if it is not today):
+#
+#   scripts/add-lab-photo.sh ~/Desktop/IMG_1234.HEIC [YYYY-MM-DD]
+#
+# It writes images/lab/<date>-{800,1200,1600,2400}.jpg and adds an entry below.
+# The order of the entries here does not matter: they are sorted by date.
+
+- date: 2026-10-23
+  width: 2400
+  height: 827
+
+- date: 2026-09-27
+  width: 2400
+  height: 858

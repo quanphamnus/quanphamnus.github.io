@@ -1,0 +1,30 @@
+---
+layout: single
+title: "My desk in the lab"
+permalink: /lab/
+author_profile: true
+sitemap: false
+---
+
+{% comment %}
+  Archive of the lab-desk photo, newest first. Generated from _data/lab.yml (sorted by date,
+  so the order in that file does not matter). Not linked from the nav: it is reached from the
+  caption of the photo on the homepage. Add photos with scripts/add-lab-photo.sh.
+{% endcomment %}
+
+<style>
+.lab-shot{margin:0 0 2em}
+.lab-date{margin:0 0 .45em;font-size:.9em;opacity:.6}
+.lab-shot img{display:block;width:100%;height:auto;border-radius:3px}
+</style>
+
+<p class="lab-intro" style="opacity:.7;margin-top:-.2em">Every time I update the photo on my homepage, the old one ends up here.</p>
+
+{% assign shots = site.data.lab | sort: "date" | reverse %}
+{% for shot in shots %}
+{% assign id = shot.date | date: "%Y-%m-%d" %}
+<section class="lab-shot">
+<p class="lab-date">{{ shot.date | date: "%B %-d, %Y" }}</p>
+<img src="{{ '/images/lab/' | append: id | append: '-1200.jpg' | relative_url }}" srcset="{{ '/images/lab/' | append: id | append: '-800.jpg' | relative_url }} 800w, {{ '/images/lab/' | append: id | append: '-1200.jpg' | relative_url }} 1200w, {{ '/images/lab/' | append: id | append: '-1600.jpg' | relative_url }} 1600w, {{ '/images/lab/' | append: id | append: '-2400.jpg' | relative_url }} 2400w" sizes="(min-width: 925px) 770px, calc(100vw - 32px)" width="{{ shot.width }}" height="{{ shot.height }}" alt="My desk in the lab, photo from {{ shot.date | date: '%B %-d, %Y' }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+</section>
+{% endfor %}
