@@ -1,6 +1,7 @@
 ---
 permalink: /
-title: "Welcome to my homepage, have a nice day."
+title: "Hi there! Thanks for visiting my homepage."
+tab_title: "Quan Pham - PhD student at NUS"
 author_profile: true
 redirect_from: 
   - /about/
@@ -13,9 +14,9 @@ redirect_from:
 *My desk in the lab. I'll be sitting here for the next four years, so I really enjoy decorating it with my favorite stuff. [See how it changes over time.]({{ '/lab/' | relative_url }})*
 {: .text-center}
 
-**About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I studied Data Science at Hanoi University of Science and Technology, then spent time as an AI Resident at [VinAI Research](https://www.vinai.io/) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence). 
+**About me**: Hello world! I’m Quan Pham, a PhD student at the National University of Singapore (NUS), where I am fortunate to be advised by [Prof. Wee Sun Lee](https://www.comp.nus.edu.sg/~leews/). Before that, I received a bachelor’s degree from Hanoi University of Science and Technology, then worked as an AI Resident at [VinAI Research](https://www.vinai.io/) and [Qualcomm AI Research](https://www.qualcomm.com/research/artificial-intelligence). 
 
-Most of my days revolve around research, and I really enjoy that rhythm. The repetition does not feel boring to me; instead, it has taught me resilience, patience, and focus. Outside of research, I enjoy playing games, watching films, and, especially, traveling to [new places]({{ '/travels/' | relative_url }}).
+Most of my days revolve around research, and I really enjoy that rhythm. The repetition never bores me; instead, it has taught me resilience, patience, and focus. Outside of research, I enjoy playing games with my friends, walking around and taking some photos, and, especially, traveling to [new places]({{ '/travels/' | relative_url }}).
 
 
 My email is quanpham (at) u.nus.edu. For more about me, you can take a look at my [resume]({{ '/files/CV.pdf' | relative_url }}).
