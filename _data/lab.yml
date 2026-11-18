@@ -9,6 +9,10 @@
 # It writes images/lab/<date>-{800,1200,1600,2400}.jpg and adds an entry below.
 # The order of the entries here does not matter: they are sorted by date.
 
+- date: 2026-11-17
+  width: 2400
+  height: 897
+
 - date: 2026-10-23
   width: 2400
   height: 827
